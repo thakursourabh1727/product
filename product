@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Products from datbase</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+	<style type="text/css">
+	body
+	{
+		font-size: 16px;
+		font-family: sans-serif;
+	}
+		tr
+		{
+			cursor: pointer;
+		}
+		tr:hover
+		{
+			background: #fff;
+		}
+		table
+		{
+			border:2px solid #333;
+			border-radius: 0px;
+			width: 80%;
+			overflow: hidden;
+			text-align: center;
+			box-shadow: 3px 3px 8px #ccc;
+		}
+		button
+		{
+			margin-bottom: 10px;
+		}
+		.text
+		{
+			padding: 10px 10px;
+		}
+		.text:hover
+		{
+			background: #333;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<nav class="nav bg-info">
+		<a class="text text-light" href="/index">Home</a>
+		<a  class="text text-light" href="contactform">New Entry</a>
+		<a  class="text text-light" href="product">update</a>
+	</nav>
+<center><h1>All products Details</h1></center>
+<ul type="square">
+<?php
+/*
+	foreach ($info as $p) {
+		echo "<li><b>productID:</b> ".$p->pid."</li>";
+		echo "<li><b>productName:</b> ".$p->pname."</li>";
+		echo "<li><b>Price:</b> ".$p->price."</li>";
+		echo "<li><b>Description:</b> ".$p->des."</li>";
+		echo "<br>";
+	}
+	*/
+?>
+</ul>
+
+<table border="2" align="center" width="80%" cellpadding="20" cellspacing="0">
+	<tr class="bg-info">
+		<th>ID</th>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Description</th>
+		<th>Edit</th>
+	</tr>
+<?php
+
+	foreach ($info as $p) {
+		echo "<tr class='bg-light'>";
+		echo "<td>".$p->id."</td>";
+		echo "<td>".$p->pname."</td>";
+		echo "<td>".$p->price."</td>";
+		echo "<td>".$p->des."</td>";
+		echo "<td><form action='edit' method='get'><input type='hidden' name='pid' value='$p->id'><input type='submit' value='update' class='btn btn-warning'></form></td>";
+		echo "</tr>";
+	}
+?>	
+</table>
+</body>
+</html>
